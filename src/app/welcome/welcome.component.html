@@ -1,0 +1,29 @@
+<div class="container bg-light py-5">
+    <h1 class="display-5 fw-bold">Welcome to Quiz App</h1>
+    <p class="col-md-8 fs-4">This quiz will contains questions set. Each Question holds 10 Points</p>
+    <h4>Rules:</h4>
+    <ol>
+        <li>Correct Question gives you 10 points</li>
+        <li>Incorrect question givesyou -10 points</li>
+        <li>You will have 60 sec to answer each question</li>
+        <li>Refereshing the page will reset the Quiz</li>
+    </ol>
+    <h1 style="font-family: cursive;text-align:center">All the best!!</h1>
+    <form ngNativeValidate #quiz = "ngForm"  (ngSubmit)="startQuiz()">
+        <label id="example-radio-group-label"> <h4>English:</h4></label>
+<mat-radio-group aria-labelledby="quiz-radio-group-label" class="example-radio-group" 
+[(ngModel)]="selectedOption" (change)="onItemChange($event.value)"  [ngModelOptions]="{standalone: true}">
+  <mat-radio-button class="example-radio-button" *ngFor="let soption of options" [value]="soption">
+    {{soption}}
+  </mat-radio-button>
+</mat-radio-group>
+<div>Selected: {{selectedOption}}</div>
+
+    <div class="name col-md-4 my-3">
+        <label for="">Enter your name:</label>
+        <input #name type="text" class="form-control" required noWhitespace>
+    </div>
+    <input type = "submit" value = "Start the Quiz!!" class="btn btn-primary btn-lg">
+    </form>
+    <!--<button class="btn btn-primary btn-lg" routerLink="/question" (click)="startQuiz()">Start the Quiz!!</button>-->
+</div>
